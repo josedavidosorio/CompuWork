@@ -1,3 +1,5 @@
+package IUDigital;
+
 public class Empleado {
     private String id;
     private String nombre;
