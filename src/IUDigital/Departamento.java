@@ -7,7 +7,7 @@ public class Departamento {
     private String id;
     private String nombre;
     private List<Empleado> empleados;
-    private static final int MAX_EMPLEADOS = 5; // Límite de empleados por departamento
+    private static final int MAX_EMPLEADOS = 6; // Límite de empleados por departamento
 
     public Departamento(String id, String nombre) {
         this.id = id;
