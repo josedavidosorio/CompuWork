@@ -1,5 +1,3 @@
-package IUDigital;
-
 public class Empleado {
     private String id;
     private String nombre;
@@ -34,11 +32,10 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado{" +
-                "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", departamentoId='" + departamentoId + '\'' +
-                '}';
+        return "\tEmpleado ID: " + id +
+                "\n\tNombre: " + nombre +
+                "\n\tApellido: " + apellido +
+                "\n\tDepartamento ID: " + departamentoId + "\n";
     }
+
 }

@@ -1,5 +1,3 @@
-package IUDigital;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,12 +5,13 @@ public class Departamento {
     private String id;
     private String nombre;
     private List<Empleado> empleados;
-    private static final int MAX_EMPLEADOS = 6; // Límite de empleados por departamento
+    private int capacidadMaxima; // Nuevo atributo para capacidad
 
-    public Departamento(String id, String nombre) {
+    public Departamento(String id, String nombre, int capacidadMaxima) {
         this.id = id;
         this.nombre = nombre;
         this.empleados = new ArrayList<>();
+        this.capacidadMaxima = capacidadMaxima;
     }
 
     public String getId() {
@@ -27,27 +26,36 @@ public class Departamento {
         return empleados;
     }
 
-    public boolean agregarEmpleado(Empleado empleado) {
-        if (empleados.size() < MAX_EMPLEADOS) {
-            empleados.add(empleado);
-            empleado.setDepartamentoId(this.id);
-            return true;  // Se agregó el empleado con éxito
-        } else {
-            return false; // No se puede agregar más empleados
+    // Método para agregar un empleado con gestión de excepciones
+    public void agregarEmpleado(Empleado empleado) throws GestionException {
+        if (empleados.size() >= capacidadMaxima) {
+            throw new GestionException("El departamento ha alcanzado su capacidad máxima.");
         }
+        empleados.add(empleado);
+        empleado.setDepartamentoId(this.id);
     }
 
-    public void eliminarEmpleado(Empleado empleado) {
+    // Método para eliminar un empleado con gestión de excepciones
+    public void eliminarEmpleado(Empleado empleado) throws GestionException {
+        if (!empleados.contains(empleado)) {
+            throw new GestionException("El empleado no existe en este departamento.");
+        }
         empleados.remove(empleado);
         empleado.setDepartamentoId(null);
     }
 
     @Override
     public String toString() {
-        return "Departamento{" +
-                "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", empleados=" + empleados +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Departamento ID: ").append(id)
+                .append("\nNombre: ").append(nombre)
+                .append("\nEmpleados:\n");
+
+        for (Empleado empleado : empleados) {
+            sb.append(empleado).append("\n");
+        }
+        return sb.toString();
     }
+
 }
+

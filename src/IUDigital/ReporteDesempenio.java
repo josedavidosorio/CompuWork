@@ -1,5 +1,3 @@
-package IUDigital;
-
 public class ReporteDesempenio {
     private Empleado empleado;
     private String evaluacion;
@@ -25,10 +23,11 @@ public class ReporteDesempenio {
 
     @Override
     public String toString() {
-        return "ReporteDesempenio{" +
-                "empleado=" + empleado +
-                ", evaluacion='" + evaluacion + '\'' +
-                ", comentarios='" + comentarios + '\'' +
-                '}';
+        return "\nReporte de Desempeño del Empleado:\n" +
+                empleado +  // Esto invocará el toString() del Empleado
+                "Evaluación: " + evaluacion +
+                "\nComentarios: " + comentarios + "\n";
     }
+
 }
+
