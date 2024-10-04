@@ -1,7 +1,4 @@
-
 package IUDigital;
-
-import java.util.List;
 
 public class ReporteDesempeno {
     private Empleado empleado;
@@ -10,19 +7,16 @@ public class ReporteDesempeno {
 
     public ReporteDesempeno(Empleado empleado) {
         this.empleado = empleado;
-        // Aquí inicializamos las métricas de alguna forma
         this.metric1 = calcularMetric1();
         this.metric2 = calcularMetric2();
     }
 
     private double calcularMetric1() {
-        // Lógica para calcular la primera métrica
-        return Math.random() * 100; // Placeholder para una métrica real
+        return Math.random() * 100;
     }
 
     private double calcularMetric2() {
-        // Lógica para calcular la segunda métrica
-        return Math.random() * 100; // Placeholder para una métrica real
+        return Math.random() * 100;
     }
 
     public String generarReporte() {
@@ -33,7 +27,6 @@ public class ReporteDesempeno {
                 "Métrica 2: " + metric2 + "\n";
     }
 
-    // Método estático para generar reportes para todos los empleados de un departamento
     public static String generarReportePorDepartamento(Departamento departamento) {
         StringBuilder sb = new StringBuilder();
         for (Empleado emp : departamento.getEmpleados()) {

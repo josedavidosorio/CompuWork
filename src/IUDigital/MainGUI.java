@@ -120,7 +120,7 @@ public class MainGUI {
             }
         }
         if (empleado != null) {
-            final ReporteDesempeno reporte = new ReporteDesempeno(empleado);
+            ReporteDesempeno reporte = new ReporteDesempeno(empleado);
             JOptionPane.showMessageDialog(null, reporte.generarReporte());
         } else {
             JOptionPane.showMessageDialog(null, "Empleado no encontrado.");

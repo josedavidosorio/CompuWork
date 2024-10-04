@@ -1,8 +1,9 @@
 package IUDigital;
+
 public class Empleado {
     private String nombre;
     private String id;
-    private String tipo; // permanente o temporal
+    private String tipo;
 
     public Empleado(String nombre, String id, String tipo) {
         this.nombre = nombre;
@@ -10,23 +11,16 @@ public class Empleado {
         this.tipo = tipo;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
     public String getId() {
         return id;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String mostrarInfo() {
-        return "Empleado: " + nombre + ", ID: " + id + ", Tipo: " + tipo;
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "nombre='" + nombre + '\'' +
+                ", id='" + id + '\'' +
+                ", tipo='" + tipo + '\'' +
+                '}';
     }
 }
